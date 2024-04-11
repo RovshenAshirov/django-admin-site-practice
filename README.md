@@ -9,3 +9,10 @@ python manage.py migrate
 python manage.py createsuperuser
 python manage.py runserver
 ```
+
+```bash
+python manage.py makemigrations
+python manage.py migrate
+```
+
+Create new blog on admin site
