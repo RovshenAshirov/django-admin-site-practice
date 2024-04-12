@@ -9,6 +9,7 @@ admin.site.index_title = 'Welcome to Extreme Admin Portal'
 class BlogAdmin(admin.ModelAdmin):
     list_display = ('title', 'created_at', 'updated_at', 'broadcast')
     list_filter = ('broadcast',)
+    ordering = ('title', 'updated_at')
 
 
 admin.site.register(Blog, BlogAdmin)
