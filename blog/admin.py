@@ -12,6 +12,7 @@ class BlogAdmin(admin.ModelAdmin):
     ordering = ('title', 'updated_at')
     search_fields = ('title',)
     prepopulated_fields = {'slug': ('title',)}
+    list_per_page = 50
 
 
 admin.site.register(Blog, BlogAdmin)
