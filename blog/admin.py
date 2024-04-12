@@ -10,6 +10,7 @@ class BlogAdmin(admin.ModelAdmin):
     list_display = ('title', 'created_at', 'updated_at', 'broadcast')
     list_filter = ('broadcast',)
     ordering = ('title', 'updated_at')
+    search_fields = ('title',)
 
 
 admin.site.register(Blog, BlogAdmin)
