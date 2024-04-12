@@ -11,6 +11,7 @@ class BlogAdmin(admin.ModelAdmin):
     list_filter = ('broadcast',)
     ordering = ('title', 'updated_at')
     search_fields = ('title',)
+    prepopulated_fields = {'slug': ('title',)}
 
 
 admin.site.register(Blog, BlogAdmin)

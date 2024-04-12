@@ -2,6 +2,7 @@ from django.db import models
 
 
 class Blog(models.Model):
+    slug = models.SlugField(null=True, blank=True)
     title = models.CharField(max_length=255, verbose_name='başlık')
     body = models.TextField(verbose_name='İçerik')
     broadcast = models.BooleanField(default=True, verbose_name='yayın mı?')
