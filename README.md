@@ -35,3 +35,14 @@ for i in range(350):
     blog = Blog(title=faker.name(), body=faker.paragraph())
     blog.save()
 ```
+
+```python
+from blog.models import Blog
+from faker import Faker
+
+faker = Faker()
+
+for i in range(350):
+    blog = Blog(title=faker.name(), body=faker.paragraph(), broadcast=False)
+    blog.save()
+```
