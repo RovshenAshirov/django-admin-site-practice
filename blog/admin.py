@@ -13,6 +13,13 @@ class BlogAdmin(admin.ModelAdmin):
     search_fields = ('title',)
     prepopulated_fields = {'slug': ('title',)}
     list_per_page = 50
+    actions = ('get_broadcast',)
+
+    def get_broadcast(self, request, queryset):
+        count = queryset.update(broadcast=True)
+        self.message_user(request, f"{count} adet yazı yayına alındı")
+
+    get_broadcast.short_description = 'İşaretlenen yazıları yayına al'
 
 
 admin.site.register(Blog, BlogAdmin)
