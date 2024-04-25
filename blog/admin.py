@@ -15,7 +15,17 @@ class BlogAdmin(admin.ModelAdmin):
     list_per_page = 50
     actions = ('get_broadcast',)
     date_hierarchy = 'updated_at'
-    fields = (('title', 'slug'), 'body', 'broadcast')
+    # fields = (('title', 'slug'), 'body', 'broadcast')
+    fieldsets = (
+        (None, {
+            'fields': (('title', 'slug'), 'body'),
+            'description': 'Yazı için genel ayarlar'
+        }),
+        ('Opsiyonel ayarlar', {
+            'fields': ('broadcast',),
+            'description': 'Opsiyonel ayarlar için bu kümeyi kullanabilirsiniz'
+        })
+    )
 
     def get_broadcast(self, request, queryset):
         count = queryset.update(broadcast=True)
