@@ -15,6 +15,7 @@ class BlogAdmin(admin.ModelAdmin):
     list_per_page = 50
     actions = ('get_broadcast',)
     date_hierarchy = 'updated_at'
+    fields = (('title', 'slug'), 'body', 'broadcast')
 
     def get_broadcast(self, request, queryset):
         count = queryset.update(broadcast=True)
