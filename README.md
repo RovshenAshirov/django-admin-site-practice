@@ -93,3 +93,13 @@ pip install django-admin-list-filter-dropdown
 ```bash
 pip install django-admin-rangefilter
 ```
+
+[Visit to site](https://django-leaflet.readthedocs.io/en/latest/)
+```bash
+pip install django-leaflet
+```
+
+[Visit to site](https://django-geojson.readthedocs.io/en/latest/)
+```bash
+pip install django-geojson
+```

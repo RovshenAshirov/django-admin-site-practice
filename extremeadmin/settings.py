@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'ckeditor',
     'django_admin_listfilter_dropdown',
     'rangefilter',
+    'leaflet',
+    'djgeojson',
 ]
 
 MIDDLEWARE = [

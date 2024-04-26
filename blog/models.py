@@ -1,6 +1,7 @@
 from ckeditor.fields import RichTextField
 from django.db import models
 from django.utils import timezone
+from djgeojson.fields import PointField
 
 
 class Blog(models.Model):
@@ -50,6 +51,18 @@ class Category(models.Model):
     class Meta:
         verbose_name = 'kategori'
         verbose_name_plural = 'kategoriler'
+
+    def __str__(self):
+        return self.name
+
+
+class Place(models.Model):
+    name = models.CharField(max_length=255, verbose_name='mekanın adı')
+    location = PointField(verbose_name='lokasyon')
+
+    class Meta:
+        verbose_name = 'mekan'
+        verbose_name_plural = 'mekanlar'
 
     def __str__(self):
         return self.name

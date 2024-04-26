@@ -1,8 +1,9 @@
 from django.contrib import admin
 from django.utils import timezone
 from django_admin_listfilter_dropdown.filters import RelatedDropdownFilter
+from leaflet.admin import LeafletGeoAdmin
 from rangefilter.filters import DateTimeRangeFilter
-from blog.models import Blog, Comment, Category
+from blog.models import Blog, Comment, Category, Place
 
 admin.site.site_title = 'Extreme Title'
 admin.site.site_header = 'Extreme Admin Portal'  # It also appears on Login Page
@@ -71,3 +72,4 @@ class CommentAdmin(admin.ModelAdmin):
 admin.site.register(Blog, BlogAdmin)
 admin.site.register(Comment, CommentAdmin)
 admin.site.register(Category)
+admin.site.register(Place, LeafletGeoAdmin)
