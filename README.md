@@ -113,3 +113,10 @@ pip install django-import-export
 ```bash
 pip install django-jazzmin
 ```
+
+# Admin App Security and Optimized Operations
+
+1. Publish under https
+2. Not granting superuser privileges to everyone
+3. Not giving the ability to delete models, especially those with critical values, to every group and every staff member
+4. Keeping superusers limited to maintain control
