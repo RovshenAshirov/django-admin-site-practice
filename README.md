@@ -108,3 +108,8 @@ pip install django-geojson
 ```bash
 pip install django-import-export
 ```
+
+[Visit to site](https://django-jazzmin.readthedocs.io/)
+```bash
+pip install django-jazzmin
+```

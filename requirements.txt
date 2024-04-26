@@ -4,5 +4,6 @@ django-admin-list-filter-dropdown==1.0.3
 django-ckeditor==6.7.1
 django-geojson==4.0.0
 django-import-export==3.3.8
+django-jazzmin==3.0.0
 django-leaflet==0.29.1
 Faker==24.8.0
