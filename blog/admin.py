@@ -7,7 +7,7 @@ admin.site.index_title = 'Welcome to Extreme Admin Portal'
 
 
 class BlogAdmin(admin.ModelAdmin):
-    list_display = ('title', 'created_at', 'updated_at', 'broadcast')
+    list_display = ('title', 'created_at', 'updated_at', 'broadcast', 'how_many_days_ago')
     list_filter = ('broadcast',)
     ordering = ('title', 'updated_at')
     search_fields = ('title',)
