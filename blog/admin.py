@@ -12,6 +12,7 @@ class CommentInline(admin.TabularInline):
     model = Comment
     fields = ('comment', 'broadcast')
     extra = 1
+    classes = ('collapse',)
 
 
 class BlogAdmin(admin.ModelAdmin):
@@ -31,7 +32,8 @@ class BlogAdmin(admin.ModelAdmin):
         }),
         ('Opsiyonel ayarlar', {
             'fields': ('broadcast',),
-            'description': 'Opsiyonel ayarlar için bu kümeyi kullanabilirsiniz'
+            'description': 'Opsiyonel ayarlar için bu kümeyi kullanabilirsiniz',
+            'classes': ('collapse',)
         })
     )
     inlines = (CommentInline,)
