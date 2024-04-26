@@ -23,6 +23,10 @@ class Blog(models.Model):
     #     different = timezone.now() - self.created_at
     #     return different.days
 
+    @property
+    def how_many_comments_are_there(self):
+        return self.comments.count()
+
 
 class Comment(models.Model):
     blog = models.ForeignKey(to='blog.Blog', related_name='comments', on_delete=models.CASCADE, verbose_name='blog')

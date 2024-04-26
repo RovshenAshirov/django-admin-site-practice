@@ -16,7 +16,8 @@ class CommentInline(admin.TabularInline):
 
 
 class BlogAdmin(admin.ModelAdmin):
-    list_display = ('title', 'created_at', 'updated_at', 'broadcast', 'how_many_days_ago')
+    list_display = ('title', 'created_at', 'updated_at', 'broadcast', 'how_many_days_ago',
+                    'how_many_comments_are_there')
     list_filter = ('broadcast',)
     ordering = ('title', 'updated_at')
     search_fields = ('title',)
