@@ -63,3 +63,13 @@ for blog in Blog.objects.iterator():
 ```
 
 Add three categories
+
+## Manage User Accounts
+
+Different types of user accounts
+
+1. Non staff users -> is_staff = False & is_superuser = False
+2. Staff users -> is_staff = True & is_superuser = False
+3. Superusers -> is_staff = True & is_superuser = True
+
+Create non staff user. Try logging to admin site as one
