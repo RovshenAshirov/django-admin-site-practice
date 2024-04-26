@@ -1,6 +1,7 @@
 from ckeditor.fields import RichTextField
 from django.db import models
 from django.utils import timezone
+from django.utils.safestring import mark_safe
 from djgeojson.fields import PointField
 
 
@@ -9,6 +10,7 @@ class Blog(models.Model):
     slug = models.SlugField(null=True, blank=True)
     title = models.CharField(max_length=255, verbose_name='başlık')
     body = RichTextField(verbose_name='İçerik')
+    image = models.ImageField(upload_to='blog/', default='defaults/default.png', verbose_name='resim')
     broadcast = models.BooleanField(default=True, verbose_name='yayın mı?')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='ekleme tarihi')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='guncelleme tarihi')
@@ -28,6 +30,12 @@ class Blog(models.Model):
     # @property
     # def how_many_comments_are_there(self):
     #     return self.comments.count()
+
+    @property
+    def view_image(self):
+        if self.image:
+            return mark_safe(f"<img src=\"{self.image.url}\" width=400 height=400>")
+        return mark_safe(f"<h3>{self.title} adlı yazı resime sahip değil</h3>")
 
 
 class Comment(models.Model):

@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.utils import timezone
+from django.utils.safestring import mark_safe
 from django_admin_listfilter_dropdown.filters import RelatedDropdownFilter
 from import_export.admin import ImportExportModelAdmin
 from leaflet.admin import LeafletGeoAdmin
@@ -22,7 +23,7 @@ class CommentInline(admin.TabularInline):
 
 class BlogAdmin(admin.ModelAdmin):
     list_display = ('title', 'created_at', 'updated_at', 'broadcast', 'how_many_days_ago',
-                    'how_many_comments_are_there')
+                    'how_many_comments_are_there', 'list_view_image')
     list_filter = ('broadcast', ("created_at", DateTimeRangeFilter),)
     ordering = ('title', 'updated_at')
     search_fields = ('title',)
@@ -30,6 +31,7 @@ class BlogAdmin(admin.ModelAdmin):
     list_per_page = 50
     actions = ('get_broadcast',)
     date_hierarchy = 'updated_at'
+    readonly_fields = ('view_image',)
     # fields = (('title', 'slug'), 'body', 'broadcast')
     fieldsets = (
         (None, {
@@ -37,7 +39,7 @@ class BlogAdmin(admin.ModelAdmin):
             'description': 'Yazı için genel ayarlar'
         }),
         ('Opsiyonel ayarlar', {
-            'fields': ('broadcast', 'categories'),
+            'fields': ('broadcast', 'categories', 'image', 'view_image'),
             'description': 'Opsiyonel ayarlar için bu kümeyi kullanabilirsiniz',
             'classes': ('collapse',)
         })
@@ -62,6 +64,13 @@ class BlogAdmin(admin.ModelAdmin):
         return blog.comments.count()
 
     how_many_comments_are_there.short_description = "Kaç tane yorum var"
+
+    def list_view_image(self, blog):
+        if blog.image:
+            return mark_safe(f"<img src='{blog.image.url}' width='50' height='50'>")
+        return mark_safe('---------')
+
+    list_view_image.short_description = 'resim'
 
 
 class CommentAdmin(ImportExportModelAdmin):

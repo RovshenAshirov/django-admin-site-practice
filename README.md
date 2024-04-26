@@ -134,3 +134,10 @@ pip install django-admin-honeypot-updated-2021
 ```bash
 python manage.py migrate
 ```
+
+# Extras
+
+[Visit to site](https://pillow.readthedocs.io/en/stable/)
+```bash
+pip install Pillow
+```
