@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rangefilter',
     'leaflet',
     'djgeojson',
+    'import_export',
 ]
 
 MIDDLEWARE = [

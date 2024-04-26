@@ -1,9 +1,11 @@
 from django.contrib import admin
 from django.utils import timezone
 from django_admin_listfilter_dropdown.filters import RelatedDropdownFilter
+from import_export.admin import ImportExportModelAdmin
 from leaflet.admin import LeafletGeoAdmin
 from rangefilter.filters import DateTimeRangeFilter
 from blog.models import Blog, Comment, Category, Place
+from blog.resources import CommentResource
 
 admin.site.site_title = 'Extreme Title'
 admin.site.site_header = 'Extreme Admin Portal'  # It also appears on Login Page
@@ -62,11 +64,12 @@ class BlogAdmin(admin.ModelAdmin):
     how_many_comments_are_there.short_description = "Kaç tane yorum var"
 
 
-class CommentAdmin(admin.ModelAdmin):
+class CommentAdmin(ImportExportModelAdmin):
     list_display = ('__str__', 'created_at', 'broadcast')
     list_per_page = 50
     list_editable = ('broadcast',)
     list_filter = (('blog', RelatedDropdownFilter),)
+    resource_class = CommentResource
 
 
 admin.site.register(Blog, BlogAdmin)

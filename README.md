@@ -103,3 +103,8 @@ pip install django-leaflet
 ```bash
 pip install django-geojson
 ```
+
+[Visit to site](https://django-import-export.readthedocs.io/en/latest/)
+```bash
+pip install django-import-export
+```
