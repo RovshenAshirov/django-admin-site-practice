@@ -32,12 +32,14 @@ class BlogAdmin(admin.ModelAdmin):
             'description': 'Yazı için genel ayarlar'
         }),
         ('Opsiyonel ayarlar', {
-            'fields': ('broadcast',),
+            'fields': ('broadcast', 'categories'),
             'description': 'Opsiyonel ayarlar için bu kümeyi kullanabilirsiniz',
             'classes': ('collapse',)
         })
     )
     inlines = (CommentInline,)
+    # filter_vertical = ('categories',)
+    filter_horizontal = ('categories',)
 
     def get_broadcast(self, request, queryset):
         count = queryset.update(broadcast=True)
