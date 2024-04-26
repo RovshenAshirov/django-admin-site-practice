@@ -72,6 +72,9 @@ class CommentAdmin(ImportExportModelAdmin):
     resource_class = CommentResource
     raw_id_fields = ('blog',)
 
+    def has_delete_permission(self, request, obj=None):
+        return False
+
 
 admin.site.register(Blog, BlogAdmin)
 admin.site.register(Comment, CommentAdmin)
