@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.utils import timezone
 from django_admin_listfilter_dropdown.filters import RelatedDropdownFilter
+from rangefilter.filters import DateTimeRangeFilter
 from blog.models import Blog, Comment, Category
 
 admin.site.site_title = 'Extreme Title'
@@ -19,7 +20,7 @@ class CommentInline(admin.TabularInline):
 class BlogAdmin(admin.ModelAdmin):
     list_display = ('title', 'created_at', 'updated_at', 'broadcast', 'how_many_days_ago',
                     'how_many_comments_are_there')
-    list_filter = ('broadcast',)
+    list_filter = ('broadcast', ("created_at", DateTimeRangeFilter),)
     ordering = ('title', 'updated_at')
     search_fields = ('title',)
     prepopulated_fields = {'slug': ('title',)}

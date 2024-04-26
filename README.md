@@ -20,6 +20,7 @@ Create new blog on admin site
 
 ## ModelAdmin class usage and configuration for ORM models
 
+[Visit to site](https://faker.readthedocs.io/en/master/)
 ```bash
 pip install faker
 python manage.py shell
@@ -49,6 +50,7 @@ for i in range(350):
 
 ## Advanced ModelAdmin options
 
+[Visit to site](https://django-ckeditor.readthedocs.io/en/latest/)
 ```bash
 pip install django-ckeditor
 ```
@@ -82,6 +84,12 @@ Create editor group. crud blog and comments, view category. Give to staff user
 
 ## Useful 3rd Party Libraries
 
+[Visit to site](https://github.com/mrts/django-admin-list-filter-dropdown?tab=readme-ov-file)
 ```bash
 pip install django-admin-list-filter-dropdown
+```
+
+[Visit to site](https://github.com/silentsokolov/django-admin-rangefilter)
+```bash
+pip install django-admin-rangefilter
 ```

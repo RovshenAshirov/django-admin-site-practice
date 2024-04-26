@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'ckeditor',
     'django_admin_listfilter_dropdown',
+    'rangefilter',
 ]
 
 MIDDLEWARE = [
