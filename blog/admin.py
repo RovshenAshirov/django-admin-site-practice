@@ -1,7 +1,6 @@
 from django.contrib import admin
 from django.utils import timezone
-
-from blog.models import Blog
+from blog.models import Blog, Comment
 
 admin.site.site_title = 'Extreme Title'
 admin.site.site_header = 'Extreme Admin Portal'  # It also appears on Login Page
@@ -42,4 +41,10 @@ class BlogAdmin(admin.ModelAdmin):
     how_many_days_ago.short_description = 'Kaç gün önce'
 
 
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('__str__', 'created_at', 'broadcast')
+    list_per_page = 50
+
+
 admin.site.register(Blog, BlogAdmin)
+admin.site.register(Comment, CommentAdmin)

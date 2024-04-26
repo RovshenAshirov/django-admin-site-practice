@@ -22,3 +22,18 @@ class Blog(models.Model):
     # def how_many_days_ago(self):
     #     different = timezone.now() - self.created_at
     #     return different.days
+
+
+class Comment(models.Model):
+    blog = models.ForeignKey(to='blog.Blog', related_name='comments', on_delete=models.CASCADE, verbose_name='blog')
+    comment = models.TextField(verbose_name='yorum')
+    broadcast = models.BooleanField(default=True, verbose_name='yayın mı?')
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='ekleme tarihi')
+
+    class Meta:
+        verbose_name = 'yorum'
+        verbose_name_plural = 'yorumlar'
+
+    def __str__(self):
+        return f"{self.blog.title} - {self.comment}"
+
