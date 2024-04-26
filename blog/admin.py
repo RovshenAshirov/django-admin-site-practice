@@ -7,6 +7,13 @@ admin.site.site_header = 'Extreme Admin Portal'  # It also appears on Login Page
 admin.site.index_title = 'Welcome to Extreme Admin Portal'
 
 
+# class CommentInline(admin.StackedInline):
+class CommentInline(admin.TabularInline):
+    model = Comment
+    fields = ('comment', 'broadcast')
+    extra = 1
+
+
 class BlogAdmin(admin.ModelAdmin):
     list_display = ('title', 'created_at', 'updated_at', 'broadcast', 'how_many_days_ago')
     list_filter = ('broadcast',)
@@ -27,6 +34,7 @@ class BlogAdmin(admin.ModelAdmin):
             'description': 'Opsiyonel ayarlar için bu kümeyi kullanabilirsiniz'
         })
     )
+    inlines = (CommentInline,)
 
     def get_broadcast(self, request, queryset):
         count = queryset.update(broadcast=True)
