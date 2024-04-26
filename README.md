@@ -47,4 +47,17 @@ for i in range(350):
     blog.save()
 ```
 
-# Advanced ModelAdmin options
+## Advanced ModelAdmin options
+
+## Relational Models in Admin App
+
+```python
+from blog.models import Blog, Comment
+from faker import Faker
+
+faker = Faker()
+
+for blog in Blog.objects.iterator():
+    comments = [Comment(comment=faker.paragraph(), blog=blog) for _ in range(3)]
+    Comment.objects.bulk_create(comments)
+```
