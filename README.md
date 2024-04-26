@@ -120,3 +120,17 @@ pip install django-jazzmin
 2. Not granting superuser privileges to everyone
 3. Not giving the ability to delete models, especially those with critical values, to every group and every staff member
 4. Keeping superusers limited to maintain control
+
+[Visit to site](https://django-admin-honeypot.readthedocs.io/en/latest/)
+```bash
+pip install django-admin-honeypot
+```
+
+[Visit to site](https://pypi.org/project/django-admin-honeypot-updated-2021/)
+```bash
+pip install django-admin-honeypot-updated-2021
+```
+
+```bash
+python manage.py migrate
+```
