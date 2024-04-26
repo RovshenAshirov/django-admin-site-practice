@@ -17,7 +17,7 @@ class Blog(models.Model):
     def __str__(self):
         return self.title
 
-    @property
-    def how_many_days_ago(self):
-        different = timezone.now() - self.created_at
-        return different.days
+    # @property
+    # def how_many_days_ago(self):
+    #     different = timezone.now() - self.created_at
+    #     return different.days

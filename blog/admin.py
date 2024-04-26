@@ -1,4 +1,6 @@
 from django.contrib import admin
+from django.utils import timezone
+
 from blog.models import Blog
 
 admin.site.site_title = 'Extreme Title'
@@ -32,6 +34,12 @@ class BlogAdmin(admin.ModelAdmin):
         self.message_user(request, f"{count} adet yazı yayına alındı")
 
     get_broadcast.short_description = 'İşaretlenen yazıları yayına al'
+
+    def how_many_days_ago(self, blog):
+        different = timezone.now() - blog.created_at
+        return different.days
+
+    how_many_days_ago.short_description = 'Kaç gün önce'
 
 
 admin.site.register(Blog, BlogAdmin)
