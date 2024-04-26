@@ -51,6 +51,11 @@ class BlogAdmin(admin.ModelAdmin):
 
     how_many_days_ago.short_description = 'Kaç gün önce'
 
+    def how_many_comments_are_there(self, blog):
+        return blog.comments.count()
+
+    how_many_comments_are_there.short_description = "Kaç tane yorum var"
+
 
 class CommentAdmin(admin.ModelAdmin):
     list_display = ('__str__', 'created_at', 'broadcast')
