@@ -46,3 +46,5 @@ for i in range(350):
     blog = Blog(title=faker.name(), body=faker.paragraph(), broadcast=False)
     blog.save()
 ```
+
+# Advanced ModelAdmin options
