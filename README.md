@@ -74,3 +74,4 @@ Different types of user accounts
 
 Create non staff user. Try logging to admin site as one
 Create staff user. Login to admin site as one. Give view permissions to blogs, comments and categories. Edit staff user -> permissions
+Create editor group. crud blog and comments, view category. Give to staff user
