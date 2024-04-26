@@ -52,6 +52,7 @@ class BlogAdmin(admin.ModelAdmin):
 class CommentAdmin(admin.ModelAdmin):
     list_display = ('__str__', 'created_at', 'broadcast')
     list_per_page = 50
+    list_editable = ('broadcast',)
 
 
 admin.site.register(Blog, BlogAdmin)
