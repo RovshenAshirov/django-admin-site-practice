@@ -73,3 +73,4 @@ Different types of user accounts
 3. Superusers -> is_staff = True & is_superuser = True
 
 Create non staff user. Try logging to admin site as one
+Create staff user. Login to admin site as one. Give view permissions to blogs, comments and categories. Edit staff user -> permissions
