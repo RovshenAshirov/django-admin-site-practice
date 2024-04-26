@@ -4,6 +4,7 @@ from django.utils import timezone
 
 
 class Blog(models.Model):
+    categories = models.ManyToManyField(to='blog.Category', related_name='blogs', blank=True)
     slug = models.SlugField(null=True, blank=True)
     title = models.CharField(max_length=255, verbose_name='başlık')
     body = RichTextField(verbose_name='İçerik')
@@ -41,3 +42,14 @@ class Comment(models.Model):
     def __str__(self):
         return f"{self.blog.title} - {self.comment}"
 
+
+class Category(models.Model):
+    name = models.CharField(max_length=100, verbose_name='kategorinin adı')
+    broadcast = models.BooleanField(default=True, verbose_name='yayın mı?')
+
+    class Meta:
+        verbose_name = 'kategori'
+        verbose_name_plural = 'kategoriler'
+
+    def __str__(self):
+        return self.name

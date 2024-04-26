@@ -61,3 +61,5 @@ for blog in Blog.objects.iterator():
     comments = [Comment(comment=faker.paragraph(), blog=blog) for _ in range(3)]
     Comment.objects.bulk_create(comments)
 ```
+
+Add three categories

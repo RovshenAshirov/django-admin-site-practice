@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils import timezone
-from blog.models import Blog, Comment
+from blog.models import Blog, Comment, Category
 
 admin.site.site_title = 'Extreme Title'
 admin.site.site_header = 'Extreme Admin Portal'  # It also appears on Login Page
@@ -65,3 +65,4 @@ class CommentAdmin(admin.ModelAdmin):
 
 admin.site.register(Blog, BlogAdmin)
 admin.site.register(Comment, CommentAdmin)
+admin.site.register(Category)
