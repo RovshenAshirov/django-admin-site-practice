@@ -49,6 +49,10 @@ for i in range(350):
 
 ## Advanced ModelAdmin options
 
+```bash
+pip install django-ckeditor
+```
+
 ## Relational Models in Admin App
 
 ```python
@@ -75,3 +79,9 @@ Different types of user accounts
 Create non staff user. Try logging to admin site as one
 Create staff user. Login to admin site as one. Give view permissions to blogs, comments and categories. Edit staff user -> permissions
 Create editor group. crud blog and comments, view category. Give to staff user
+
+## Useful 3rd Party Libraries
+
+```bash
+pip install django-admin-list-filter-dropdown
+```

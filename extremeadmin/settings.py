@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',
     'ckeditor',
+    'django_admin_listfilter_dropdown',
 ]
 
 MIDDLEWARE = [

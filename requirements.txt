@@ -1,3 +1,4 @@
 Django==4.2.11
+django-admin-list-filter-dropdown==1.0.3
 django-ckeditor==6.7.1
 Faker==24.8.0

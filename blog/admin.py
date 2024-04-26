@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.utils import timezone
+from django_admin_listfilter_dropdown.filters import RelatedDropdownFilter
 from blog.models import Blog, Comment, Category
 
 admin.site.site_title = 'Extreme Title'
@@ -63,6 +64,7 @@ class CommentAdmin(admin.ModelAdmin):
     list_display = ('__str__', 'created_at', 'broadcast')
     list_per_page = 50
     list_editable = ('broadcast',)
+    list_filter = (('blog', RelatedDropdownFilter),)
 
 
 admin.site.register(Blog, BlogAdmin)
