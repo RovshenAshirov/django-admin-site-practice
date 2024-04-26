@@ -70,6 +70,7 @@ class CommentAdmin(ImportExportModelAdmin):
     list_editable = ('broadcast',)
     list_filter = (('blog', RelatedDropdownFilter),)
     resource_class = CommentResource
+    raw_id_fields = ('blog',)
 
 
 admin.site.register(Blog, BlogAdmin)
