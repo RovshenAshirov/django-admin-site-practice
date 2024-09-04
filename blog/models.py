@@ -1,4 +1,5 @@
-from ckeditor.fields import RichTextField
+# from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
 from django.utils import timezone
 from django.utils.safestring import mark_safe
@@ -9,7 +10,7 @@ class Blog(models.Model):
     categories = models.ManyToManyField(to='blog.Category', related_name='blogs', blank=True)
     slug = models.SlugField(null=True, blank=True)
     title = models.CharField(max_length=255, verbose_name='başlık')
-    body = RichTextField(verbose_name='İçerik')
+    body = RichTextUploadingField(verbose_name='İçerik')
     image = models.ImageField(upload_to='blog/', default='defaults/default.png', verbose_name='resim')
     broadcast = models.BooleanField(default=True, verbose_name='yayın mı?')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='ekleme tarihi')
