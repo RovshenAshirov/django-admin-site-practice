@@ -1,4 +1,6 @@
 from django.contrib import admin
+from django.core import serializers
+from django.http  import HttpResponse
 from django.utils import timezone
 from django.utils.safestring import mark_safe
 from django_admin_listfilter_dropdown.filters import RelatedDropdownFilter
@@ -29,7 +31,7 @@ class BlogAdmin(admin.ModelAdmin):
     search_fields = ('title',)
     prepopulated_fields = {'slug': ('title',)}
     list_per_page = 50
-    actions = ('get_broadcast',)
+    actions = ('get_broadcast', 'export_to_json')
     date_hierarchy = 'updated_at'
     readonly_fields = ('view_image',)
     # fields = (('title', 'slug'), 'body', 'broadcast')
@@ -71,6 +73,14 @@ class BlogAdmin(admin.ModelAdmin):
         return mark_safe('---------')
 
     list_view_image.short_description = 'resim'
+
+    def export_to_json(self, request, queryset):
+        response = HttpResponse(content_type='application/json')
+        response['Content-Disposition'] = 'attachment; filename="blog.json"'
+        serializers.serialize('json', queryset, stream=response)
+        return response
+
+    export_to_json.short_description = 'Seçilen verileri JSON\'a çevir'
 
 
 class CommentAdmin(ImportExportModelAdmin):
