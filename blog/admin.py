@@ -1,3 +1,4 @@
+import csv
 from django.contrib import admin
 from django.core import serializers
 from django.http  import HttpResponse
@@ -90,9 +91,21 @@ class CommentAdmin(ImportExportModelAdmin):
     list_filter = (('blog', RelatedDropdownFilter),)
     resource_class = CommentResource
     raw_id_fields = ('blog',)
+    actions = ('export_to_csv',)
 
     def has_delete_permission(self, request, obj=None):
         return False
+
+    def export_to_csv(self, request, queryset):
+        response = HttpResponse(content_type='text/csv')
+        response['Content-Disposition'] = 'attachment; filename="blog.csv"'
+        writer = csv.writer(response)
+        writer.writerow(['Blog Adı', 'Yorum', 'Yayın Mı'])
+        for comment in queryset:
+            writer.writerow([comment.blog.title, comment.comment, 'Evet' if comment.broadcast else "Hayır"])
+        return response
+
+    export_to_csv.short_description = 'Seçilen yorumları CSV olarak al'
 
 
 admin.site.register(Blog, BlogAdmin)
